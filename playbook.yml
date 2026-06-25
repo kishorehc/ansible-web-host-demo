@@ -1,0 +1,24 @@
+- name: Simple server setup
+  hosts: kish
+  become: yes
+
+  tasks:
+    - name: Ensure nginx is installed
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Ensure nginx is running
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Copy index.html file to web server
+      copy:
+        src: /home/ubuntu/2158_forge_reality/
+        dest: /var/www/html
+        owner: www-data
+        group: www-data
+        mode: '0644'

@@ -1,0 +1,6 @@
+[kish]
+<ip address>
+
+[kish:vars]
+ansible_user = <user name>
+ansible_ssh_private_key_file = <key-pwd>
